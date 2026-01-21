@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">ComposeExamples</string>
+    <string name="phone">Телефон</string>
+    <string name="address">Адрес</string>
+    <string name="email">E-mail</string>
+    <string name="favourite_contact">Контакт в избранном</string>
+    <string name="initials">Инициалы</string>
+    <string name="photo">Фотография контакта</string>
 </resources>
