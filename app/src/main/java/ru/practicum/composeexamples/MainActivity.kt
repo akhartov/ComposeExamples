@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -60,14 +61,16 @@ fun ContactDetails(contact: Contact, modifier: Modifier = Modifier) {
     ) {
         ContactIcon(contact)
         Text(
-            text = contact.surname?.let { "${contact.name} ${contact.surname}" } ?: contact.name,
+            text = remember {
+                contact.surname?.let { "${contact.name} ${contact.surname}" } ?: contact.name
+            },
             textAlign = TextAlign.Center,
             style = normalText
         )
 
         Row(modifier = Modifier.padding(bottom = 48.dp)) {
             Text(
-                text = contact.familyName,
+                text = remember { contact.familyName },
                 textAlign = TextAlign.Center,
                 style = largeText
             )
@@ -104,7 +107,7 @@ fun SmallContactDetails(leftText: String, rigthText: String?, textStyle: TextSty
             horizontalAlignment = Alignment.End
         ) {
             Text(
-                text = "${leftText}:",
+                text = remember { "${leftText}:" },
                 style = textStyle
             )
         }
@@ -115,7 +118,7 @@ fun SmallContactDetails(leftText: String, rigthText: String?, textStyle: TextSty
                 .padding(end = 16.dp),
         ) {
             Text(
-                text = rigthText,
+                text = remember { rigthText },
                 style = textStyle
             )
         }
@@ -139,7 +142,7 @@ fun ContactIcon(contact: Contact) {
                 contentDescription = stringResource(R.string.initials)
             )
             Text(
-                text = contact.name.take(1) + contact.familyName.take(1)
+                text = remember { contact.name.take(1) + contact.familyName.take(1) }
             )
         } else {
             AsyncImage(
